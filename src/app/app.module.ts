@@ -25,3 +25,4 @@ import { AuthModule } from './auth/Auth.module';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+//http://angular.realworld.io/
