@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AuthService } from '../../services/auth.service';
 
 import { registerAction } from '../../store/actions/register.action';
 import { isSubmittingSelector } from '../../store/selectors';
+import { IRegisterRequest } from '../../types/registerRequest.interface';
 
 @Component({
   selector: 'mc-register',
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   form!: FormGroup;
   isSubmitting$!: Observable<boolean>;
 
-  constructor(private fb: FormBuilder, private store: Store, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private store: Store) {}
 
   ngOnInit() {
     this.initForm();
@@ -36,13 +36,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    const boo = {
+    const request: IRegisterRequest = {
       user: {
         ...this.form.value
       }
     };
 
-    this.store.dispatch(registerAction(boo));
-    this.authService.register(boo).subscribe((d) => console.log(d, 'user'));
+    this.store.dispatch(registerAction({ request }));
   }
 }
