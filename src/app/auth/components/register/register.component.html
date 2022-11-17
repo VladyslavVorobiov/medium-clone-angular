@@ -10,7 +10,10 @@
           <a [routerLink]="['/login']">Have an account?</a>
         </p>
 
-          BACKEND ERROR HERE
+         <mc-backend-error-messages
+          *ngIf="backendErrors$ | async"
+          [backendErrors]="backendErrors$ | async"
+         ></mc-backend-error-messages>
           
           <form [formGroup]="form" (submit)="onSubmit()">
             <fieldset>
