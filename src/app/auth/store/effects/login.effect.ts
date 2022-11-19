@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
+import { ACCESS_TOKEN } from 'src/app/shared/constants/token.constant';
 
 import { ICurrentUser } from 'src/app/shared/interfaces/currentUser.interface';
 import { PersistenceService } from 'src/app/shared/services/persistence.service';
@@ -17,7 +18,7 @@ export class LoginEffect {
       switchMap(({ request }) => {
         return this.authService.login(request).pipe(
           map((currentUser: ICurrentUser) => {
-            this.ps.set('accessToken', JSON.stringify(currentUser.token));
+            this.ps.set(ACCESS_TOKEN, JSON.stringify(currentUser.token));
 
             return loginSuccessAction({ currentUser });
           }),

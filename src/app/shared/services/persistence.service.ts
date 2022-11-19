@@ -20,7 +20,9 @@ export class PersistenceService implements OnDestroy {
 
   get(key: string): any {
     try {
-      return JSON.parse(localStorage.getItem(key) || '');
+      const data = localStorage.getItem(key);
+
+      return data ? JSON.parse(data) : null;
     } catch (error) {
       console.error('Error getting from Local Storage', error);
       return null;
