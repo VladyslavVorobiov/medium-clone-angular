@@ -1,6 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PersistenceService implements OnDestroy {
   constructor() {
     console.log('PersistenceService is constructed');
