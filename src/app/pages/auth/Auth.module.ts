@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/reducers/reducers';
 import { AuthService } from './services/auth.service';
 import { RegisterEffect } from './store/effects/register.effect';
-import { BackendErrorMessagesModule } from '../shared/modules/backend-error-messages/backend-error-messages.module';
+import { BackendErrorMessagesModule } from '../../shared/modules/backend-error-messages/backend-error-messages.module';
 import { LoginEffect } from './store/effects/login.effect';
 import { LoginComponent } from './components/login/login.component';
 import { GetCurrentUserEffect } from './store/effects/get-current-user.effect';

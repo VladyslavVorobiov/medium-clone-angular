@@ -8,9 +8,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './auth/Auth.module';
+import { AuthModule } from './pages/auth/Auth.module';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { AuthInterceptor } from './core/interceptors/auth-interceptor.service';
+import { GlobalFeedModule } from './pages/global-feed/global-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,8 @@ import { AuthInterceptor } from './core/interceptors/auth-interceptor.service';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production // Restrict extension to log-only mode
     }),
-    TopBarModule
+    TopBarModule,
+    GlobalFeedModule
   ],
   providers: [
     {
