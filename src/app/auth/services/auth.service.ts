@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { ICurrentUser } from 'src/app/shared/types/currentUser.interface';
+import { ICurrentUser } from 'src/app/shared/interfaces/currentUser.interface';
 import { IRegisterRequest } from '../types/registerRequest.interface';
 import { environment } from 'src/environments/environment';
 import { IAuthResponse } from '../types/authResponse.interface';
