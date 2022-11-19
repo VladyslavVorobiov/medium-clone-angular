@@ -5,6 +5,7 @@ import { ICurrentUser } from 'src/app/shared/interfaces/currentUser.interface';
 import { IRegisterRequest } from '../types/registerRequest.interface';
 import { environment } from 'src/environments/environment';
 import { IAuthResponse } from '../types/authResponse.interface';
+import { ILoginRequest } from '../types/loginRequest.interface';
 
 @Injectable()
 export class AuthService {
@@ -13,6 +14,16 @@ export class AuthService {
   register(data: IRegisterRequest): Observable<ICurrentUser> {
     const url = environment.apiUrl + '/users';
 
-    return this.http.post<IAuthResponse>(url, data).pipe(map((response: IAuthResponse) => response.user));
+    return this.http.post<IAuthResponse>(url, data).pipe(map(this.getUser));
+  }
+
+  login(data: ILoginRequest): Observable<ICurrentUser> {
+    const url = environment.apiUrl + '/users/login';
+
+    return this.http.post<IAuthResponse>(url, data).pipe(map(this.getUser));
+  }
+
+  private getUser(response: IAuthResponse): ICurrentUser {
+    return response.user;
   }
 }
