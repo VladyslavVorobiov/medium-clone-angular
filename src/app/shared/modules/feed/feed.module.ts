@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 import { FeedComponent } from './feed.component';
 import { GetFeedEffect } from './store/effects/get-feed.effect';
-import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers/reducers';
 import { FeedService } from './services/feed.service';
-import { RouterModule } from '@angular/router';
+import { ErrorMessageModule } from '../error-message/error-message.module';
+import { LoadingModule } from '../loading/loading.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     StoreModule.forFeature('feed', reducers),
-    EffectsModule.forFeature([GetFeedEffect])
+    EffectsModule.forFeature([GetFeedEffect]),
+    ErrorMessageModule,
+    LoadingModule
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],

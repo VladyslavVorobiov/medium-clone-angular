@@ -7,7 +7,6 @@ import { ICurrentUser } from '../../interfaces/current-user.interface';
 @Component({
   selector: 'mc-top-bar',
   templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TopBarComponent implements OnInit {

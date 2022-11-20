@@ -1,13 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'mc-global-feed',
-  templateUrl: './global-feed.component.html',
+  selector: 'mc-banner',
+  templateUrl: './banner.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GlobalFeedComponent implements OnInit {
-  apiUrl = '/articles';
-
+export class BannerComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

@@ -8,7 +8,6 @@ import { errorSelector, feedSelector, isLoadingSelector } from './store/selector
 @Component({
   selector: 'mc-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeedComponent implements OnInit {
