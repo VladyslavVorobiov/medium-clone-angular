@@ -5,7 +5,7 @@ import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { ACCESS_TOKEN } from 'src/app/shared/constants/token.constant';
 
-import { ICurrentUser } from 'src/app/shared/interfaces/currentUser.interface';
+import { ICurrentUser } from 'src/app/shared/interfaces/current-user.interface';
 import { PersistenceService } from 'src/app/shared/services/persistence.service';
 import { AuthService } from '../../services/auth.service';
 import { loginAction, loginFailureAction, loginSuccessAction } from '../actions/login.action';

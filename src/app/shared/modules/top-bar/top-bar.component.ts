@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { currentUserSelector, isAnonymousSelector, isLoggedInSelector } from 'src/app/pages/auth/store/selectors';
-import { ICurrentUser } from '../../interfaces/currentUser.interface';
+import { ICurrentUser } from '../../interfaces/current-user.interface';
 
 @Component({
   selector: 'mc-top-bar',

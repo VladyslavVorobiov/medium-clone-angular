@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IBackendErrors } from 'src/app/shared/interfaces/backendErrors.interface';
+import { IBackendErrors } from 'src/app/shared/interfaces/backend-errors.interface';
 import { loginAction } from '../../store/actions/login.action';
 
 import { isSubmittingSelector, validationErrorsSelector } from '../../store/selectors';

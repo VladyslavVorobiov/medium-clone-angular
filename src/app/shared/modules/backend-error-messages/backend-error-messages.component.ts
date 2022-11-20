@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { IBackendErrors } from '../../interfaces/backendErrors.interface';
+import { IBackendErrors } from '../../interfaces/backend-errors.interface';
 
 @Component({
   selector: 'mc-backend-error-messages',

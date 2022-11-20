@@ -1,4 +1,4 @@
-import { ICurrentUser } from 'src/app/shared/interfaces/currentUser.interface';
+import { ICurrentUser } from 'src/app/shared/interfaces/current-user.interface';
 
 export interface IAuthResponse {
   user: ICurrentUser;

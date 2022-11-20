@@ -1,5 +1,5 @@
-import { IBackendErrors } from 'src/app/shared/interfaces/backendErrors.interface';
-import { ICurrentUser } from 'src/app/shared/interfaces/currentUser.interface';
+import { IBackendErrors } from 'src/app/shared/interfaces/backend-errors.interface';
+import { ICurrentUser } from 'src/app/shared/interfaces/current-user.interface';
 
 export interface IAuthState {
   isSubmitting: boolean;
