@@ -1,17 +1,9 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersistenceService implements OnDestroy {
-  constructor() {
-    console.log('PersistenceService is constructed');
-  }
-
-  ngOnDestroy() {
-    console.log('PersistenceService is destroyed');
-  }
-
+export class PersistenceService {
   set(key: string, data: string) {
     try {
       localStorage.setItem(key, data);
