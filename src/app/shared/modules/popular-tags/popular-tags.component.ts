@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getPopularTagsAction } from './store/actions/get-popular-tags.action';
@@ -6,7 +6,8 @@ import { errorSelector, isLoadingSelector, popularTagsSelector } from './store/s
 
 @Component({
   selector: 'mc-popular-tags',
-  templateUrl: './popular-tags.component.html'
+  templateUrl: './popular-tags.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PopularTagsComponent implements OnInit {
   popularTags$!: Observable<string[] | null>;
