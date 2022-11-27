@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { parseUrl, stringify, ParsedUrl } from 'query-string';
 
 import { PAGINATION_LIMIT } from '../../constants/pagination.constant';
@@ -14,7 +14,7 @@ import { errorSelector, feedSelector, isLoadingSelector } from './store/selector
   templateUrl: './feed.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent implements OnInit, OnChanges, OnDestroy {
   @Input('apiUrl') apiUrlProps: string = '';
 
   isLoading$!: Observable<boolean>;
@@ -25,17 +25,28 @@ export class FeedComponent implements OnInit, OnDestroy {
   baseUrl: string = '';
   currentPage: number = 1;
 
-  private queryParamsSubscription!: Subscription;
+  private _destroy$!: Subject<void>;
 
   constructor(private store: Store, private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initValues();
     this.initListeners();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    const isApiUrlChanged =
+      !changes['apiUrlProps'].firstChange &&
+      changes['apiUrlProps'].currentValue !== changes['apiUrlProps'].previousValue;
+
+    if (isApiUrlChanged) {
+      this.fetchFeed();
+    }
+  }
+
   ngOnDestroy(): void {
-    this.queryParamsSubscription.unsubscribe();
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 
   initValues(): void {
@@ -47,7 +58,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   }
 
   initListeners(): void {
-    this.queryParamsSubscription = this.route.queryParams.subscribe((params: Params) => {
+    this.route.queryParams.pipe(takeUntil(this._destroy$)).subscribe((params: Params) => {
       this.currentPage = Number(params['page'] || '1');
       this.fetchFeed();
     });

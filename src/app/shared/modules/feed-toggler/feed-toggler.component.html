@@ -5,11 +5,17 @@
     </li>
 
     <li class="nav-item">
-      <a [routerLink]="['/']" class="nav-link" routerLinkActive="active"> Global feed </a>
+      <a class="nav-link" 
+         [routerLink]="['/']"
+         [routerLinkActive]="'active'"
+         [routerLinkActiveOptions]="{exact: true}"
+      > Global feed </a>
     </li>
 
     <li class="nav-item" *ngIf="tagNameProp">
-      <a [routerLink]="['/tags', tagNameProp]" class="nav-link" routerLinkActive="active"> # {{ tagNameProp }} </a>
+      <a [routerLink]="['/tags', tagNameProp]" class="nav-link" routerLinkActive="active">
+        <i class="ion-pound"></i>
+         {{ tagNameProp }} </a>
     </li>
 
   </ul>

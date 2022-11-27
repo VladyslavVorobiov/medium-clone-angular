@@ -13,6 +13,8 @@ import { AuthModule } from './pages/auth/Auth.module';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { AuthInterceptor } from './core/interceptors/auth-interceptor.service';
 import { GlobalFeedModule } from './pages/global-feed/global-feed.module';
+import { YourFeedModule } from './pages/your-feed/your-feed.module';
+import { TagFeedModule } from './pages/tag-feed/tag-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +35,9 @@ import { GlobalFeedModule } from './pages/global-feed/global-feed.module';
       logOnly: environment.production // Restrict extension to log-only mode
     }),
     TopBarModule,
-    GlobalFeedModule
+    GlobalFeedModule,
+    YourFeedModule,
+    TagFeedModule
   ],
   providers: [
     {
