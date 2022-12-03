@@ -25,7 +25,7 @@ export class FeedComponent implements OnInit, OnChanges, OnDestroy {
   baseUrl: string = '';
   currentPage: number = 1;
 
-  private _destroy$!: Subject<void>;
+  private _destroy$: Subject<void> = new Subject();
 
   constructor(private store: Store, private router: Router, private route: ActivatedRoute) {}
 

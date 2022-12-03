@@ -12,7 +12,7 @@ export class TagFeedComponent implements OnInit, OnDestroy {
   apiUrl: string = '';
   tagName: string = '';
 
-  private _destroy$!: Subject<void>;
+  private _destroy$: Subject<void> = new Subject();
 
   constructor(private route: ActivatedRoute) {}
 
