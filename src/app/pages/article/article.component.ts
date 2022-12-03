@@ -2,9 +2,11 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, map, Observable } from 'rxjs';
+
 import { SLUG } from 'src/app/shared/constants/route.constants';
 import { IArticle } from 'src/app/shared/interfaces/article.interface';
 import { currentUserSelector } from '../auth/store/selectors';
+import { deleteArticleAction } from './store/actions/delete-article.action';
 import { getArticleAction } from './store/actions/get-article.action';
 import { articleSelector, errorSelector, isLoadingSelector } from './store/selectors';
 
@@ -46,5 +48,9 @@ export class ArticleComponent implements OnInit {
 
   fetchData(): void {
     this.store.dispatch(getArticleAction({ slug: this.slug }));
+  }
+
+  deleteArticle(): void {
+    this.store.dispatch(deleteArticleAction({ slug: this.slug }));
   }
 }
