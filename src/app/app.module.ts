@@ -15,6 +15,7 @@ import { AuthInterceptor } from './core/interceptors/auth-interceptor.service';
 import { GlobalFeedModule } from './pages/global-feed/global-feed.module';
 import { YourFeedModule } from './pages/your-feed/your-feed.module';
 import { TagFeedModule } from './pages/tag-feed/tag-feed.module';
+import { ArticleModule } from './pages/article/article.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +38,8 @@ import { TagFeedModule } from './pages/tag-feed/tag-feed.module';
     TopBarModule,
     GlobalFeedModule,
     YourFeedModule,
-    TagFeedModule
+    TagFeedModule,
+    ArticleModule
   ],
   providers: [
     {
