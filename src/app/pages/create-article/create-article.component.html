@@ -1,5 +1,5 @@
-<p>
-  create-article works!
-</p>
-
-<mc-article-form [isSubmitting]="false" (articleSubmitted)="onSubmit($event)"></mc-article-form>
+<mc-article-form 
+    [isSubmitting]="(isSubmitting$ | async) || false" 
+    [errors]="(errors$ | async) || undefined"
+    (articleSubmitted)="onSubmit($event)">
+</mc-article-form>

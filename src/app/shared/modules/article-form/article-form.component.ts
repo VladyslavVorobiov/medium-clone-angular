@@ -11,7 +11,7 @@ import { IBackendErrors } from '../../interfaces/backend-errors.interface';
 export class ArticleFormComponent implements OnInit {
   @Input('values') valuesProp!: IArticleBase;
   @Input('isSubmitting') isSubmittingProp: boolean = false;
-  @Input('errors') errorsProp!: IBackendErrors;
+  @Input('errors') errorsProp!: IBackendErrors | undefined;
 
   @Output('articleSubmitted') articleSubmittedEvent: EventEmitter<IArticleBase> = new EventEmitter<IArticleBase>();
 

@@ -1,5 +1,5 @@
 import { IArticle } from './article.interface';
 
-export interface IGetArticleResponse {
+export interface IArticleResponse {
   article: IArticle;
 }
