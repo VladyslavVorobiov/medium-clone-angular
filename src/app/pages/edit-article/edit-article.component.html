@@ -1,0 +1,11 @@
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
+
+<mc-backend-error-messages *ngIf="errors$ | async" 
+                            [backendErrors]="errors$ | async"></mc-backend-error-messages>
+
+<mc-article-form *ngIf="article$ | async"
+    [values]="article$ | async"
+    [isSubmitting]="(isSubmitting$ | async) || false" 
+    [errors]="(errors$ | async) || undefined"
+    (articleSubmitted)="onSubmit($event)">
+</mc-article-form>

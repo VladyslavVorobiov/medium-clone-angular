@@ -17,6 +17,7 @@ import { YourFeedModule } from './pages/your-feed/your-feed.module';
 import { TagFeedModule } from './pages/tag-feed/tag-feed.module';
 import { ArticleModule } from './pages/article/article.module';
 import { CreateArticleModule } from './pages/create-article/create-article.module';
+import { EditArticleModule } from './pages/edit-article/edit-article.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,7 +42,8 @@ import { CreateArticleModule } from './pages/create-article/create-article.modul
     YourFeedModule,
     TagFeedModule,
     CreateArticleModule,
-    ArticleModule
+    ArticleModule,
+    EditArticleModule
   ],
   providers: [
     {

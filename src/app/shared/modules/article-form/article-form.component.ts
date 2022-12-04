@@ -9,7 +9,7 @@ import { IBackendErrors } from '../../interfaces/backend-errors.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleFormComponent implements OnInit {
-  @Input('values') valuesProp!: IArticleBase;
+  @Input('values') valuesProp!: IArticleBase | null;
   @Input('isSubmitting') isSubmittingProp: boolean = false;
   @Input('errors') errorsProp!: IBackendErrors | undefined;
 

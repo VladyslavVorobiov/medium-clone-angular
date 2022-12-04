@@ -7,7 +7,7 @@ import { IBackendErrors } from '../../interfaces/backend-errors.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BackendErrorMessagesComponent implements OnInit {
-  @Input('backendErrors') backendErrorsProps!: IBackendErrors | null;
+  @Input('backendErrors') backendErrorsProps: IBackendErrors | null | undefined;
 
   public errMessages: string[] = [];
 
