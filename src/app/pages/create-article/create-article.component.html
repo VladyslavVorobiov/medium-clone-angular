@@ -2,4 +2,4 @@
   create-article works!
 </p>
 
-<mc-article-form></mc-article-form>
+<mc-article-form [isSubmitting]="false" (articleSubmitted)="onSubmit($event)"></mc-article-form>

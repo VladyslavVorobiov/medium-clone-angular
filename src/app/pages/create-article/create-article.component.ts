@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { IArticleBase } from 'src/app/shared/interfaces/article-base.interface';
 
 @Component({
   selector: 'mc-create-article',
@@ -9,4 +10,8 @@ export class CreateArticleComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  onSubmit(value: IArticleBase): void {
+    console.log(value);
+  }
 }
